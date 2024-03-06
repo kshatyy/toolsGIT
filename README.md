@@ -26,17 +26,18 @@
 
 `Найдите полный хеш и комментарий коммита, хеш которого начинается на aefea.`
 
-root@serv1:/home/kshatyy/Terraform/terraform# git log --oneline | grep '^aefea'
-aefead2207 Update CHANGELOG.md
+Запрос: git log --oneline | grep '^aefea'
+Ответ: aefead2207 Update CHANGELOG.md
 
 `Какому тегу соответствует коммит 85024d3?`
 
-git describe --tags 85024d3
-v0.12.23
+Запрос: git describe --tags 85024d3
+Ответ: v0.12.23
 
 `Сколько родителей у коммита b8d720? Напишите их хеши.`
 
-root@serv1:/home/kshatyy/Terraform/terraform# git cat-file -p b8d720
+Запрос: git cat-file -p b8d720
+Ответ:
 tree cec002aab630c8bc701cb85bc94e55e751cd2d8f
 parent 56cd7859e05c36c06b56d013b55a252d0bb7e158
 parent 9ea88f22fc6269854151c571162c5bcf958bee2b
@@ -61,7 +62,8 @@ Merge pull request #23916 from hashicorp/cgriggs01-stable
 
 `Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами v0.12.23 и v0.12.24.`
 
-root@serv1:/home/kshatyy/Terraform/terraform# git log v0.12.23..v0.12.24 --oneline
+Запрос: git log v0.12.23..v0.12.24 --oneline
+Ответ:
 33ff1c03bb (tag: v0.12.24) v0.12.24
 b14b74c493 [Website] vmc provider links
 3f235065b9 Update CHANGELOG.md
@@ -76,7 +78,8 @@ dd01a35078 Update CHANGELOG.md
 `Найдите коммит, в котором была создана функция func providerSource, её определение 
 в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).`
 
-root@serv1:/home/kshatyy/Terraform/terraform# git log -S'func providerSource('
+Запрос: git log -S'func providerSource('
+Ответ:
 commit 8c928e83589d90a031f811fae52a81be7153e82f
 Author: Martin Atkins <mart@degeneration.co.uk>
 Date:   Thu Apr 2 18:04:39 2020 -0700
@@ -112,7 +115,8 @@ Date:   Thu Apr 2 18:04:39 2020 -0700
     being run. This fixes TestInitProvidersVendored.
 
 `Найдите все коммиты, в которых была изменена функция globalPluginDirs`
-root@serv1:/home/kshatyy/Terraform/terraform# git log -S'globalPluginDirs' --oneline
+Запрос: git log -S'globalPluginDirs' --oneline
+Ответ:
 65c4ba7363 Remove terraform binary
 125eb51dc4 Remove accidentally-committed binary
 22c121df86 Bump compatibility version to 1.3.0 for terraform core release (#30988)
@@ -122,7 +126,9 @@ c0b1761096 prevent log output during init
 8364383c35 Push plugin discovery down into command package
 
 `Кто автор функции synchronizedWriters?`
-root@serv1:/home/kshatyy/Terraform/terraform# git log -S'synchronizedWriters'                                                 commit bdfea50cc85161dea41be0fe3381fd98731ff786
+Запрос: git log -S'synchronizedWriters'   
+Ответ:
+commit bdfea50cc85161dea41be0fe3381fd98731ff786
 Author: James Bardin <j.bardin@gmail.com>
 Date:   Mon Nov 30 18:02:04 2020 -0500
 
@@ -157,7 +163,8 @@ Date:   Wed May 3 16:25:41 2017 -0700
     can be only one Write call outstanding across both stderr and stdout,
     mimicking the usual behavior we expect (when stderr/stdout are a normal
     file handle) of each Write being completed atomically.
-root@serv1:/home/kshatyy/Terraform/terraform# git log -S'synchronizedWriters' --reverse --format="%an <%ae>"
+Запрос: git log -S'synchronizedWriters' --reverse --format="%an <%ae>"
+Ответ:
 Martin Atkins <mart@degeneration.co.uk>
 James Bardin <j.bardin@gmail.com>
 James Bardin <j.bardin@gmail.com>
@@ -165,8 +172,3 @@ root@serv1:/home/kshatyy/Terraform/terraform#
 
 `Исходя из первого коммита, создал функцию synchronizedWriters  Martin Atkins, 
 а последующие изменения вносил James Bardin`
-
-Таблица "Регионы" с информацией о регионах (идентификатор региона, название региона).
-Таблица "Адреса филиалов" с информацией об адресах филиалов (идентификатор адреса, адрес, идентификатор региона).
-
-Эти шаги помогут уменьшить дублирование данных, избежать аномалий и обеспечить нормализацию базы данных.
