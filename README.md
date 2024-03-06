@@ -139,9 +139,12 @@ git log -S'globalPluginDirs' --oneline
 c0b1761096 prevent log output during init
 8364383c35 Push plugin discovery down into command package
 
-`Кто автор функции synchronizedWriters?`
-Запрос: git log -S'synchronizedWriters'   
-Ответ:
+### Кто автор функции synchronizedWriters?`
+
+`Запрос:`
+git log -S'synchronizedWriters'   
+
+`Ответ:`
 commit bdfea50cc85161dea41be0fe3381fd98731ff786
 Author: James Bardin <j.bardin@gmail.com>
 Date:   Mon Nov 30 18:02:04 2020 -0500
