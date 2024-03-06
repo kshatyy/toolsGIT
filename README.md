@@ -26,18 +26,26 @@
 
 `Найдите полный хеш и комментарий коммита, хеш которого начинается на aefea.`
 
-Запрос: git log --oneline | grep '^aefea'
-Ответ: aefead2207 Update CHANGELOG.md
+### Запрос:
+git log --oneline | grep '^aefea'
+
+### Ответ:
+aefead2207 Update CHANGELOG.md
 
 `Какому тегу соответствует коммит 85024d3?`
 
-Запрос: git describe --tags 85024d3
-Ответ: v0.12.23
+### Запрос:
+git describe --tags 85024d3
+
+### Ответ:
+v0.12.23
 
 `Сколько родителей у коммита b8d720? Напишите их хеши.`
 
-Запрос: git cat-file -p b8d720
-Ответ:
+### Запрос:
+git cat-file -p b8d720
+
+### Ответ:
 tree cec002aab630c8bc701cb85bc94e55e751cd2d8f
 parent 56cd7859e05c36c06b56d013b55a252d0bb7e158
 parent 9ea88f22fc6269854151c571162c5bcf958bee2b
@@ -62,8 +70,10 @@ Merge pull request #23916 from hashicorp/cgriggs01-stable
 
 `Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами v0.12.23 и v0.12.24.`
 
-Запрос: git log v0.12.23..v0.12.24 --oneline
-Ответ:
+### Запрос:
+git log v0.12.23..v0.12.24 --oneline
+
+### Ответ:
 33ff1c03bb (tag: v0.12.24) v0.12.24
 b14b74c493 [Website] vmc provider links
 3f235065b9 Update CHANGELOG.md
@@ -78,8 +88,10 @@ dd01a35078 Update CHANGELOG.md
 `Найдите коммит, в котором была создана функция func providerSource, её определение 
 в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).`
 
-Запрос: git log -S'func providerSource('
-Ответ:
+### Запрос:
+git log -S'func providerSource('
+
+### Ответ:
 commit 8c928e83589d90a031f811fae52a81be7153e82f
 Author: Martin Atkins <mart@degeneration.co.uk>
 Date:   Thu Apr 2 18:04:39 2020 -0700
@@ -115,8 +127,11 @@ Date:   Thu Apr 2 18:04:39 2020 -0700
     being run. This fixes TestInitProvidersVendored.
 
 `Найдите все коммиты, в которых была изменена функция globalPluginDirs`
-Запрос: git log -S'globalPluginDirs' --oneline
-Ответ:
+
+### Запрос:
+git log -S'globalPluginDirs' --oneline
+
+### Ответ:
 65c4ba7363 Remove terraform binary
 125eb51dc4 Remove accidentally-committed binary
 22c121df86 Bump compatibility version to 1.3.0 for terraform core release (#30988)
@@ -163,8 +178,11 @@ Date:   Wed May 3 16:25:41 2017 -0700
     can be only one Write call outstanding across both stderr and stdout,
     mimicking the usual behavior we expect (when stderr/stdout are a normal
     file handle) of each Write being completed atomically.
-Запрос: git log -S'synchronizedWriters' --reverse --format="%an <%ae>"
-Ответ:
+
+### Запрос: 
+git log -S'synchronizedWriters' --reverse --format="%an <%ae>"
+
+### Ответ:
 Martin Atkins <mart@degeneration.co.uk>
 James Bardin <j.bardin@gmail.com>
 James Bardin <j.bardin@gmail.com>
